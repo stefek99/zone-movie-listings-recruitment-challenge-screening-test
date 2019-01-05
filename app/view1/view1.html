@@ -7,4 +7,6 @@
 
 <button ng-click='search()'>search</button>
 
-<movie ng-repeat="movie in nowPlaying.data.results"></movie>
+<div class='row'>
+    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in nowPlaying.data.results'></movie>
+</div>
