@@ -7,7 +7,8 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
   'myApp.api',
-  'myApp.movie'
+  'myApp.movie',
+  'myApp.genres'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

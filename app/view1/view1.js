@@ -20,9 +20,9 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.api'])
 
 .controller('View1Ctrl', ['$scope', 'api', 'genres', 'nowPlaying', function($scope, api, genres, nowPlaying) { // cannot use fat arrow here: https://github.com/angular/angular.js/issues/14814#issuecomment-228083403
 
-
+  $scope.genres = genres;
   $scope.nowPlaying = nowPlaying;
-  
+
   $scope.rating = 3;
 
   console.log(genres);

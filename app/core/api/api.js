@@ -2,14 +2,26 @@ angular.module('myApp.api', [])
   
   .value('key', 'fd89eaca88c8dfe61da3335a0b5b1c49')
   .value('base', 'https://api.themoviedb.org/3')
-  .value('imagePath', 'https://image.tmdb.org/t/p/') // taken from the configuration API call: https://api.themoviedb.org/3/configuration?api_key=fd89eaca88c8dfe61da3335a0b5b1c49
-                                                     // "It is recommended you cache this data within your application and check for updates every few days."
-  .service('api', ['key', 'base', '$http', function(key, base, $http) {
+
+  .service('api', ['key', 'base', '$http', '$q', function(key, base, $http, $q) {
     let service = {};
 
+    let genres = {};
+
     service.genres = () => {
+      let defer = $q.defer();
       let path = '/genre/movie/list'
-      return $http.get(`${base}${path}?api_key=${key}`);
+      $http.get(`${base}${path}?api_key=${key}`).then((response) => {
+        response.data.genres.forEach((elem) => {
+          genres[elem.id + ""] = elem.name; // creating a basic mapping for efficient use later on
+        })
+        defer.resolve(genres);
+      })
+      return defer.promise;
+    }
+
+    service.genre = (id) => {
+      return genres[id];
     }
 
     service.nowPlaying = () => {
