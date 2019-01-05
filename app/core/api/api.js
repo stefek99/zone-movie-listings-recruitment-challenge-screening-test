@@ -7,9 +7,13 @@ angular.module('myApp.api', [])
     let service = {};
 
     service.genres = () => {
-        let path = '/genre/movie/list'
+      let path = '/genre/movie/list'
+      return $http.get(`${base}${path}?api_key=${key}`);
+    }
 
-        return $http.get(`${base}${path}?api_key=${key}`);
+    service.nowPlaying = () => {
+      let path = '/movie/now_playing';
+      return $http.get(`${base}${path}?api_key=${key}`);
     }
 
     return service;
