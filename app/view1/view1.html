@@ -1,1 +1,9 @@
 <p>This is the partial for view 1.</p>
+
+<label for='rating'>Rating</label>
+
+<input type='range' id='rating' ng-model='rating' min='0' max='10' step='0.5'>
+<span>{{ rating }}</span>
+
+
+<button ng-click='search()'>search</button>
