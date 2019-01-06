@@ -6,9 +6,20 @@ describe('myApp.view1 module', function() {
 
   describe('view1 controller', function(){
 
+    let view1Ctrl, $controller, $scope;
+
+    beforeEach(inject(function(_$controller_, _$rootScope_, _api_) {
+      $controller = _$controller_;
+      $scope = _$rootScope_.$new();
+      view1Ctrl = $controller('View1Ctrl', {
+        $scope: $scope,
+        api: _api_,
+        nowPlaying: undefined,
+        genres: undefined,
+      });
+    }));
+
     it('should ....', inject(function($controller) {
-      //spec body
-      var view1Ctrl = $controller('View1Ctrl');
       expect(view1Ctrl).toBeDefined();
     }));
 
