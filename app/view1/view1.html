@@ -1,16 +1,18 @@
-<p>This is the partial for view 1.</p>
-
 <label for='rating'>Rating</label>
 
 <input type='range' id='rating' ng-model='rating' min='0' max='10' step='0.5'>
 <span>{{ rating }}</span>
 
 
-<span ng-repeat='genre in genres | orderBy: "name"'>{{ genre.name }} </span>
+<span ng-repeat='genre in genres | orderBy: "name"'>
+        <label>{{ genre.name }} 
+        <input type="checkbox" ng-model="genre.checked">
+    </label>
 
-<button ng-click='search()'>search</button>
+</span>
+
 
 <div class='row'>
-    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in filteredMovies = (nowPlaying | filter:filterFn | orderBy: "-popularity")'></movie>
+    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in filteredMovies = (nowPlaying | filter:ratingFilter | filter:genreFilter | orderBy: "-popularity")'></movie>
     <p ng-hide="filteredMovies.length">There is no result</p> <!-- using little technique: http://angular-tips.com/blog/2014/08/accessing-filtered-array-outside-ng-repeat/ -->
 </div>

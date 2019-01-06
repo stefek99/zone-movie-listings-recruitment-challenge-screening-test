@@ -21,7 +21,8 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.api', 'myApp.helpers'])
 .controller('View1Ctrl', ['$scope', 'api', 'genres', 'nowPlaying', 'helpers', function($scope, api, genres, nowPlaying, helpers) { // cannot use fat arrow here: https://github.com/angular/angular.js/issues/14814#issuecomment-228083403
 
   $scope.nowPlaying = nowPlaying;
-  $scope.genres = helpers.genresOnlyContain(genres, nowPlaying);
+  $scope.genres = helpers.genresOnlyContain(genres, nowPlaying)
+  // $scope.genres.forEach((genre) => genre.checked = false); // by default all are selected
   $scope.rating = 3;
 
 
@@ -36,8 +37,20 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.api', 'myApp.helpers'])
   // }
 
 
-  $scope.filterFn = function(movie) {
+  $scope.ratingFilter = function(movie) {
     return movie.vote_average >= $scope.rating;
+  };
+
+  $scope.genreFilter = function(movie) {
+    let requiredGenres = $scope.genres.filter((genre) => genre.checked).map((genre) => genre.id);
+
+    for (let i=0; i<requiredGenres.length; i++) {
+      if (movie.genre_ids.includes(requiredGenres[i]) === false) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
 }]);  
