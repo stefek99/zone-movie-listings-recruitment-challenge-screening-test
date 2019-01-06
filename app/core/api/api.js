@@ -6,22 +6,22 @@ angular.module('myApp.api', [])
   .service('api', ['key', 'base', '$http', '$q', function(key, base, $http, $q) {
     let service = {};
 
-    let genres = {};
+    let genresLookup = {};
 
     service.genres = () => {
       let defer = $q.defer();
       let path = '/genre/movie/list'
       $http.get(`${base}${path}?api_key=${key}`).then((response) => {
         response.data.genres.forEach((elem) => {
-          genres[elem.id + ""] = elem.name; // creating a basic mapping for efficient use later on
+          genresLookup[elem.id + ""] = elem.name; // creating a basic mapping for efficient use later on
         })
-        defer.resolve(genres);
+        defer.resolve(response.data.genres);
       })
       return defer.promise;
     }
 
     service.genre = (id) => {
-      return genres[id];
+      return genresLookup[id];
     }
 
     service.nowPlaying = () => {

@@ -5,8 +5,11 @@
 <input type='range' id='rating' ng-model='rating' min='0' max='10' step='0.5'>
 <span>{{ rating }}</span>
 
+
+<span ng-repeat='genre in genres | orderBy: "name"'>{{ genre.name }} </span>
+
 <button ng-click='search()'>search</button>
 
 <div class='row'>
-    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in nowPlaying.data.results'></movie>
+    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in nowPlaying.data.results | orderBy: "-popularity"'></movie>
 </div>
