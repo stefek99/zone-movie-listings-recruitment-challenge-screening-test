@@ -5,7 +5,6 @@ describe('myApp.genres module', function() {
 
   describe('genres filter', function() {
     beforeEach(module(function($provide) {
-      $provide.value('version', 'TEST_VER');
       $provide.service('api', function() {
         let service = {};
         service.genre = (id) => {

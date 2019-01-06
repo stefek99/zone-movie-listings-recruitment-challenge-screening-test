@@ -25,11 +25,13 @@ angular.module('myApp.api', [])
     }
 
     service.nowPlaying = () => {
+      let defer = $q.defer();
       let path = '/movie/now_playing';
-      return $http.get(`${base}${path}?api_key=${key}`);
+      $http.get(`${base}${path}?api_key=${key}`).then((response) => {
+        defer.resolve(response.data.results); // we could return the $http promise directly but it is more convenient to have the exact data we need
+      });
+      return defer.promise;
     }
-
-
 
     return service;
   }])

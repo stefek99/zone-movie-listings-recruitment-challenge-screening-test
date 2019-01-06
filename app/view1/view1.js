@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute', 'myApp.api'])
+angular.module('myApp.view1', ['ngRoute', 'myApp.api', 'myApp.helpers'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -18,10 +18,12 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.api'])
   });
 }])
 
-.controller('View1Ctrl', ['$scope', 'api', 'genres', 'nowPlaying', function($scope, api, genres, nowPlaying) { // cannot use fat arrow here: https://github.com/angular/angular.js/issues/14814#issuecomment-228083403
+.controller('View1Ctrl', ['$scope', 'api', 'genres', 'nowPlaying', 'helpers', function($scope, api, genres, nowPlaying, helpers) { // cannot use fat arrow here: https://github.com/angular/angular.js/issues/14814#issuecomment-228083403
 
-  $scope.genres = genres;
   $scope.nowPlaying = nowPlaying;
+
+  $scope.genres = helpers.genresOnlyContain(genres, nowPlaying);
+  console.log($scope.genres, genres);
 
   $scope.rating = 3;
 

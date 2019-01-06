@@ -11,5 +11,5 @@
 <button ng-click='search()'>search</button>
 
 <div class='row'>
-    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in nowPlaying.data.results | orderBy: "-popularity"'></movie>
+    <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in nowPlaying | orderBy: "-popularity"'></movie>
 </div>
