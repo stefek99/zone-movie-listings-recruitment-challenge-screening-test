@@ -1,3 +1,5 @@
-<div class="title">{{ movie.title }}</div>
-<img ng-src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}">
+<h4 class="title" title="{{ movie.title }}">{{ movie.title }}</h4>
+<div class="image-wrapper">
+    <img ng-src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}">
+</div>
 <span ng-repeat="id in movie.genre_ids">{{ id | genre }} </span>

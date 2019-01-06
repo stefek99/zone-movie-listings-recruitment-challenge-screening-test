@@ -1,18 +1,19 @@
-<label for='rating'>Rating</label>
-
+<h3><label for='rating'>Minimum rating</label></h3>
 <input type='range' id='rating' ng-model='rating' min='0' max='10' step='0.5'>
 <span>{{ rating }}</span>
 
+<h3>Genres</h3>
 
-<span ng-repeat='genre in genres | orderBy: "name"'>
-        <label>{{ genre.name }} 
+<span ng-repeat='genre in genres | orderBy: "name"' class='genre-checkbox'>
+    <label>
         <input type="checkbox" ng-model="genre.checked">
+        {{ genre.name }} 
     </label>
-
 </span>
 
+<h3>Now playing</h3>
 
 <div class='row'>
     <movie class='col-6 col-sm-4 col-md-3 col-xl-2' ng-repeat='movie in filteredMovies = (nowPlaying | filter:ratingFilter | filter:genreFilter | orderBy: "-popularity")'></movie>
-    <p ng-hide="filteredMovies.length">There is no result</p> <!-- using little technique: http://angular-tips.com/blog/2014/08/accessing-filtered-array-outside-ng-repeat/ -->
+    <div class='col-12' ng-hide='filteredMovies.length'>There are no results matching your criteria</div> <!-- using little technique: http://angular-tips.com/blog/2014/08/accessing-filtered-array-outside-ng-repeat/ -->
 </div>

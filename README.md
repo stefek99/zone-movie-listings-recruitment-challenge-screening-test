@@ -1,7 +1,8 @@
 
 TODO:
 * selective Bootstrap (only grid)
-
+* truncation of very long titles: http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
+* CSS preprocessor
 
 -----
 

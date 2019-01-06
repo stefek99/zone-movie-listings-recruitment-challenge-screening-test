@@ -28,3 +28,26 @@ body {
   background: black !important;
   color: white;
 }
+
+h3 {
+  margin-top: 20px;
+}
+
+.genre-checkbox {
+  margin-right: 15px;
+}
+
+movie {
+  margin-bottom: 20px;
+}
+
+movie h4 {
+  font-size: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+movie .image-wrapper { /* this is to ensure contant height */
+  height: 300px;
+}
