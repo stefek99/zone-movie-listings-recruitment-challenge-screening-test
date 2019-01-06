@@ -27,6 +27,7 @@
 body {
   background: black !important;
   color: white;
+  font-family: 'Happy Monkey', cursive; /* alternative is to use Comic Sans */
 }
 
 h3 {
@@ -51,3 +52,4 @@ movie h4 {
 movie .image-wrapper { /* this is to ensure contant height */
   height: 300px;
 }
+

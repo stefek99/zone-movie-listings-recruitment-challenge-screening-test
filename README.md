@@ -1,8 +1,14 @@
 
-TODO:
+# TODO:
+
 * selective Bootstrap (only grid)
 * truncation of very long titles: http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
 * CSS preprocessor
+* E2E tests, mocking web requests: https://blog.ng-book.com/how-to-mock-http-requests-in-protractor/
+
+### Movie listings challenge
+
+https://github.com/zone/frontend/blob/develop/challenges/movie-listings.md
 
 -----
 
