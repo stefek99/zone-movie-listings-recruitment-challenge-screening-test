@@ -21,19 +21,23 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.api', 'myApp.helpers'])
 .controller('View1Ctrl', ['$scope', 'api', 'genres', 'nowPlaying', 'helpers', function($scope, api, genres, nowPlaying, helpers) { // cannot use fat arrow here: https://github.com/angular/angular.js/issues/14814#issuecomment-228083403
 
   $scope.nowPlaying = nowPlaying;
-
   $scope.genres = helpers.genresOnlyContain(genres, nowPlaying);
-  console.log($scope.genres, genres);
-
   $scope.rating = 3;
 
-  console.log(genres);
-  console.log(nowPlaying);
 
-  $scope.search = function() {
-    api.genres().then((actual) => {
-      console.log(actual);
-    })
-  }
+  // console.log($scope.genres, genres);
+  // console.log(genres);
+  // console.log(nowPlaying);
+
+  // $scope.search = function() {
+  //   api.genres().then((actual) => {
+  //     console.log(actual);
+  //   })
+  // }
+
+
+  $scope.filterFn = function(movie) {
+    return movie.vote_average >= $scope.rating;
+  };
 
 }]);  
