@@ -22,20 +22,7 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.api', 'myApp.helpers'])
 
   $scope.nowPlaying = nowPlaying;
   $scope.genres = helpers.genresOnlyContain(genres, nowPlaying)
-  // $scope.genres.forEach((genre) => genre.checked = false); // by default all are selected
   $scope.rating = 3;
-
-
-  // console.log($scope.genres, genres);
-  // console.log(genres);
-  // console.log(nowPlaying);
-
-  // $scope.search = function() {
-  //   api.genres().then((actual) => {
-  //     console.log(actual);
-  //   })
-  // }
-
 
   $scope.ratingFilter = function(movie) {
     return movie.vote_average >= $scope.rating;

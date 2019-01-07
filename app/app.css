@@ -49,7 +49,10 @@ movie h4 {
   white-space: nowrap;
 }
 
-movie .image-wrapper { /* this is to ensure contant height */
-  height: 300px;
+movie img {
+  max-width: 100%;
 }
 
+movie .genre {
+  font-size: 0.8em;
+}

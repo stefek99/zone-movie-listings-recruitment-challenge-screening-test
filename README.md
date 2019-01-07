@@ -1,5 +1,11 @@
+### TLDR:
 
-# TODO:
+In order to run `npm run start` (you should have node, git, other default dev stuff installed)
+
+Or just visit the online version: https://stefek99.github.io/zone-movie-listings-recruitment-challenge-screening-test/app/#!/view1
+
+
+### TODO:
 
 * selective Bootstrap (only grid)
 * truncation of very long titles: http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
